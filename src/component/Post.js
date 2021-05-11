@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export class Post extends Component {
     ;
@@ -16,8 +16,8 @@ export class Post extends Component {
     }
 
     render() {
-        return (
-            <div className="centrar">
+        return (                   
+            <div className="centrar">                
                 <h1 className="publicaciones">Publicaciones</h1>
                 <hr />
                 {this.state.posts.map(post => {

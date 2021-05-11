@@ -42,29 +42,25 @@ class App extends Component {
     this.setState({ tasks: nuevasTareas })
   }
 
-  /*
-    tareasIncompletas = () => {
-      const incompletas= this.state.tasks.filter(task=> task.done ===true);
-      console.log.apply("incompletas");    
-      
-    }
-  */
-
+  
+   
+  
 
   render() {
     return (
       /*ME LLEVO las tareas que genero aquí al ficheo Tareas.js con un props(tareas)*/
       <div>
+        <Navbar post="http://localhost:3000/posts" nuevatarea="http://localhost:3000/nuevatarea"/>
+        
         <Router>
           <Route exact path="/" render={() => {
-            return <div>
-              <Navbar post="http://localhost:3000/posts" nuevatarea="http://localhost:3000/nuevatarea"/>
+            return <div>              
               <Cards tareas={this.state.tasks} />
               <Tareas
                 tareas={this.state.tasks}
                 deleteTask={this.deleteTask}
                 checkDone={this.checkDone}
-                incompleteas={this.tareasIncompletas}
+                // incompleteas={this.tareasIncompletas}
               />
               <TaskForm addTask={this.addTask} />
 
@@ -72,7 +68,14 @@ class App extends Component {
           }}>
           </Route>
           <Route path="/posts" component={Post}></Route>
-          <Route path="/nuevatarea" component={TaskForm }></Route>
+          {/* <Route path="/nuevatarea" component={TaskForm } addTask={this.addTask}></Route> */}
+          <Route path="/nuevatarea" render = {() => {
+            return <div>
+              <TaskForm addTask={this.addTask} />
+            </div>
+          }}>
+
+          </Route>
         </Router>
       </div>
     )

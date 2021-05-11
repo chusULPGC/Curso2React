@@ -13,7 +13,7 @@ class Tarea extends Component {
 
     render() {
         return (
-            <tbody>
+            // <tbody>
                 <tr style={this.StyleCompleted()}>
                     <td>{this.props.task.title}</td>
                     <td>{this.props.task.description}</td>
@@ -32,7 +32,7 @@ class Tarea extends Component {
                              </button>                        
                     </td>                    
                 </tr>
-            </tbody>
+            // </tbody>
         )
     }
 }

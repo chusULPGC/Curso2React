@@ -3,12 +3,18 @@ import React, { Component } from 'react';
 
 
 class Cards extends Component {
-
     
+    tareasIncompletas = () => {
+        const incompletas= this.props.tareas.filter(task=> task.done === false);        
+        return incompletas.length           
+      }
     
-
+      tareasCompletas = () => {
+        const completas= this.props.tareas.filter(task=> task.done === true);        
+        return completas.length           
+      }
+    
     render() {
-        
         return (
             <div className="container">
                 <div className="row">
@@ -24,7 +30,7 @@ class Cards extends Component {
                         <div className="card text-white bg-success" >
                             <div className="card-header">Tareas completas</div>
                             <div className="card-body">
-                                <h3 className="card-title">{this.props.tareas.length}</h3>
+                                <h3 className="card-title">{this.tareasCompletas()}</h3>
                             </div>
                         </div>
                     </div>
@@ -32,7 +38,7 @@ class Cards extends Component {
                         <div className="card text-white bg-danger">
                             <div className="card-header">Tareas Incompletas</div>
                             <div className="card-body">
-                                <h3 className="card-title">{this.props.tareas.length}</h3>
+                                <h3 className="card-title">{this.tareasIncompletas()}</h3>
                             </div>
                         </div>
                     </div>
